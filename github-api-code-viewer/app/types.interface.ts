@@ -3,8 +3,19 @@ export interface RepositoryRequest {
         name: string;
         sha: string;
         size: number;
-        type: string;
+        type: "dir" | "file";
         path: string;
         url: string;
+        children?: RepositoryRequest[];
     }[]
+}
+
+export interface Content {
+    name: string;
+    sha: string;
+    size: number;
+    type: "dir" | "file";
+    path: string;
+    url: string;
+    children?: Content[];
 }
