@@ -19,3 +19,19 @@ export interface Content {
     url: string;
     children?: Content[];
 }
+
+export interface ContentRequest {
+    data: {
+        content: string;
+        type: "dir" | "file";
+        size: number;
+        url: string;
+        sha: string;
+        path: string;
+        download_url: string;
+        encoding: string;
+        git_url: string;
+        html_url: string;
+        name: string;
+    }
+}
