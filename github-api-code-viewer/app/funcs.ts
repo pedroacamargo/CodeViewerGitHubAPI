@@ -4,7 +4,7 @@ import { ContentRequest, RepositoryRequest } from "./types.interface";
 const carlos = "carlosd035";
 const repoCarlos = "rest-api";
 const pedro = "pedroacamargo"
-const repoPedro = "githubapi"
+const repoPedro = "animations"
 
 
 const actual = pedro;
@@ -49,10 +49,14 @@ export const fetchRepository = async (octokit: Octokit ,path: string = "") => {
           const children = (await fetchRepository(octokit, item.path)).data;
           return {
             ...item,
+            isOpened: false,
             children,
           };
         }
-        return item;
+        return {
+          ...item,
+          isOpened: false,
+        }
       })
     ),
   };
@@ -87,6 +91,6 @@ export const fetchContent = async (octokit: Octokit, path: string) => {
     }
   ) as ContentRequest;
 
-  console.log("fetchContent", data.data);
+  // console.log("fetchContent", data.data);
   return data.data;
 };

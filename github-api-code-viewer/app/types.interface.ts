@@ -17,6 +17,7 @@ export interface Content {
     type: "dir" | "file";
     path: string;
     url: string;
+    isOpened: boolean;
     children?: Content[];
 }
 
